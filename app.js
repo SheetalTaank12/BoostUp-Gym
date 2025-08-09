@@ -218,7 +218,7 @@ const revImgObserver = new IntersectionObserver((entries, observer) => {
   threshold: 0.1
 });
 
-const revImg = document.querySelector('.why-img');
+const revImg = document.querySelector('.why-img-1');
 if (revImg) {
   revImgObserver.observe(revImg);
 }
