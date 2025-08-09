@@ -162,5 +162,84 @@ const secObserver = new IntersectionObserver((entries,observer)=>{
   threshold: 0.05 // means 5% of element must be visible
 });
 document.querySelectorAll('section').forEach(section=>{
-    secObserverbserver.observe(section);
+    secObserver.observe(section);
 });
+
+
+
+const memCards = document.querySelectorAll('.memCard');
+
+memCards.forEach((card, index) => {
+  card.style.setProperty('--delay', `${index * 0.15}s`);
+
+  const cardObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05
+  });
+
+  cardObserver.observe(card);
+});
+
+
+
+
+const aboutObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+const aboutContent = document.querySelector('.about-container');
+if (aboutContent) {
+  aboutObserver.observe(aboutContent);
+}
+
+
+
+const revImgObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+const revImg = document.querySelector('.why-img');
+if (revImg) {
+  revImgObserver.observe(revImg);
+}
+
+
+
+
+const footerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+// Select all elements with .footer-show
+const footerContents = document.querySelectorAll('.footer-show');
+
+footerContents.forEach(footer => {
+  footerObserver.observe(footer);
+});
+

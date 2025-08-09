@@ -1508,3 +1508,72 @@ span.yellow{
     margin-right: 15px;
   }
   }
+
+
+
+
+  section{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease-out;
+}
+section.visible{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.show-heading{
+  opacity: 0;
+  transform: translateY(-70%);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+.show-heading.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+.memCard{
+  opacity: 0;
+  transform: scale(0.7);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transition-delay: var(--delay, 0s);
+
+}
+.memCard.show{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.about-container{
+   transform: translateX(-80%); 
+  opacity: 0;
+  transition: transform 1.5s ease,opacity 1.5s ease;
+}
+
+.about-container.show{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+.why-img{
+   transform: translateX(-80%); 
+  opacity: 0;
+  transition: transform 1.5s ease,opacity 1.5s ease;
+}
+
+.why-img.show{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+
+.footer-show{
+   transform: translateY(50%); 
+  opacity: 0;
+  transition: transform 1.5s ease,opacity 1.5s ease;
+}
+
+.footer-show.show{
+  transform: translateY(0);
+  opacity: 1;
+}
