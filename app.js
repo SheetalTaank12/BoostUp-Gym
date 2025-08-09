@@ -1,0 +1,166 @@
+const hamburger = document.getElementById('hamburger');
+const icon = document.getElementById('menu-icon');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        icon.classList.toggle('bx-menu');
+         icon.classList.toggle('bx-x'); // Cross icon
+    });
+
+
+const slides = document.querySelectorAll('.slide');
+const buttons = document.querySelectorAll('.slide button'); // Get all buttons
+let current = 0;
+let intervalId;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) slide.classList.add('active');
+  });
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+function startSlider() {
+  intervalId = setInterval(nextSlide, 3500); // Start auto-sliding
+}
+
+function stopSlider() {
+  clearInterval(intervalId); // Stop auto-sliding
+}
+
+// Start the slider on page load
+startSlider();
+
+// Pause only when hovering over buttons
+buttons.forEach(button => {
+  button.addEventListener('mouseenter', stopSlider);   // Pause on hover
+  button.addEventListener('mouseleave', startSlider);  // Resume when mouse leaves
+});
+
+
+
+
+function prevSlide() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+}
+const leftArrow = document.querySelector('.arrow.left');
+const rightArrow = document.querySelector('.arrow.right');
+
+leftArrow.addEventListener('click', () => {
+  stopSlider();
+  prevSlide();
+  startSlider();
+});
+
+rightArrow.addEventListener('click', () => {
+  stopSlider();
+  nextSlide();
+  startSlider();
+});
+
+
+document.getElementById("back-to-top").addEventListener("click", function () {
+  document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+});
+ const backToTopButton = document.getElementById("back-to-top");
+
+  window.addEventListener("scroll", () => {
+    const firstSectionHeight = document.querySelector("#home").offsetHeight;
+
+    if (window.scrollY > firstSectionHeight) {
+      backToTopButton.style.display = "block";
+    } else {
+      backToTopButton.style.display = "none";
+    }
+  });
+
+const container = document.querySelector('.reviews-container');
+const cards = document.querySelectorAll('.review-card');
+const leftArr = document.querySelector('.left-arrow');
+const rightArr = document.querySelector('.right-arrow');
+
+let currentIndex = 0;
+
+function updateSlider() {
+  const offset = -currentIndex * 100; // percentage shift
+  cards.forEach(card => {
+    card.style.transform = `translateX(${offset}%)`;
+  });
+}
+
+leftArr.addEventListener('click', () => {
+  currentIndex = (currentIndex === 0) ? cards.length - 1 : currentIndex - 1;
+  updateSlider();
+});
+
+rightArr.addEventListener('click', () => {
+  currentIndex = (currentIndex === cards.length - 1) ? 0 : currentIndex + 1;
+  updateSlider();
+});
+
+// initialize
+updateSlider();
+
+const swipeArrow = document.getElementById('swipe-arrow');
+const trainingSection = document.getElementById('training');
+
+function showArrowTemporarily() {
+  swipeArrow.classList.remove('hide'); // show
+  setTimeout(() => {
+    swipeArrow.classList.add('hide'); // hide after 3s
+  }, 6000);
+}
+
+// Intersection Observer to detect when #training is visible
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      showArrowTemporarily();
+    }
+  });
+}, { threshold: 0.5 }); // 0.5 = section is 50% visible
+
+observer.observe(trainingSection);
+
+
+
+
+document.getElementById("nav-join-btn").addEventListener("click", function () {
+  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+});
+document.getElementById("hero-join-btn").addEventListener("click", function () {
+  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+});
+document.getElementById("hero-trial-btn").addEventListener("click", function () {
+  document.getElementById("contact-us").scrollIntoView({ behavior: "smooth" });
+});
+document.getElementById("hero-plans-btn").addEventListener("click", function () {
+  document.getElementById("training").scrollIntoView({ behavior: "smooth" });
+});
+
+
+const secObserver = new IntersectionObserver((entries,observer)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+
+            // all headings inside it
+      const headings = entry.target.querySelectorAll('.show-heading');
+      headings.forEach(h => h.classList.add('show'));
+
+        
+        }
+    });
+}, {
+  threshold: 0.05 // means 5% of element must be visible
+});
+document.querySelectorAll('section').forEach(section=>{
+    secObserverbserver.observe(section);
+});
