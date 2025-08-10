@@ -833,15 +833,7 @@ background: linear-gradient(135deg, #ffffff, #fafafa, #f5f5f0);}
   padding: 60px 20px;
   text-align: center;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(
-  to bottom left,
-  #000000 0%,           /* pure black */
-  #333300 50%,           /* very dark olive/dark shade of yellow-black mix */
-  #b38600 70%,           /* darker mustard yellow */
-  #ffc300 90%,           /* bright yellow */
-  #ffdb4d 100%           /* lighter yellow */
-);
-
+  background: linear-gradient(to bottom, #ffc300 0%, #000 7%, #000 80%, #ffc300 100%);
 }
 
 .contact-us-heading {
