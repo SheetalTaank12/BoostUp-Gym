@@ -81,6 +81,9 @@ document.getElementById("back-to-top").addEventListener("click", function () {
     }
   });
 
+
+
+  //reviews
 const container = document.querySelector('.reviews-container');
 const cards = document.querySelectorAll('.review-card');
 const leftArr = document.querySelector('.left-arrow');
@@ -108,6 +111,47 @@ rightArr.addEventListener('click', () => {
 // initialize
 updateSlider();
 
+
+
+//gallery
+
+const galleryContainer = document.querySelector('.gallery-container');
+const galleryCards = document.querySelectorAll('.gallery-card');
+const galleryLeftArr = document.querySelector('.g-left-arrow');
+const galleryRightArr = document.querySelector('.g-right-arrow');
+
+let galleryCurrentIndex = 0;
+
+function updateGallerySlider() {
+  const offset = -galleryCurrentIndex * 100; // percentage shift
+  galleryCards.forEach(card => {
+    card.style.transform = `translateX(${offset}%)`;
+  });
+}
+galleryLeftArr.addEventListener('click', () => {
+  galleryCurrentIndex = (galleryCurrentIndex === 0) 
+    ? galleryCards.length - 1 
+    : galleryCurrentIndex - 1;
+  updateGallerySlider();
+});
+
+galleryRightArr.addEventListener('click', () => {
+  galleryCurrentIndex = (galleryCurrentIndex === galleryCards.length - 1) 
+    ? 0 
+    : galleryCurrentIndex + 1;
+  updateGallerySlider();
+});
+
+
+// initialize
+updateGallerySlider();
+
+
+
+
+
+
+// training section arrow
 const swipeArrow = document.getElementById('swipe-arrow');
 const trainingSection = document.getElementById('training');
 
