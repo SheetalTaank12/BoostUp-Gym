@@ -10,7 +10,7 @@ const icon = document.getElementById('menu-icon');
 
 
 const slides = document.querySelectorAll('.slide');
-const buttons = document.querySelectorAll('.slide button'); // Get all buttons
+const buttons = document.querySelectorAll('.slide button');
 let current = 0;
 let intervalId;
 
@@ -156,9 +156,9 @@ const swipeArrow = document.getElementById('swipe-arrow');
 const trainingSection = document.getElementById('training');
 
 function showArrowTemporarily() {
-  swipeArrow.classList.remove('hide'); // show
+  swipeArrow.classList.remove('hide'); 
   setTimeout(() => {
-    swipeArrow.classList.add('hide'); // hide after 3s
+    swipeArrow.classList.add('hide'); 
   }, 6000);
 }
 
@@ -169,7 +169,7 @@ const observer = new IntersectionObserver((entries) => {
       showArrowTemporarily();
     }
   });
-}, { threshold: 0.5 }); // 0.5 = section is 50% visible
+}, { threshold: 0.5 });
 
 observer.observe(trainingSection);
 
@@ -203,7 +203,7 @@ const secObserver = new IntersectionObserver((entries,observer)=>{
         }
     });
 }, {
-  threshold: 0.05 // means 5% of element must be visible
+  threshold: 0.05 
 });
 document.querySelectorAll('section').forEach(section=>{
     secObserver.observe(section);
@@ -280,7 +280,7 @@ const footerObserver = new IntersectionObserver((entries) => {
   threshold: 0.1
 });
 
-// Select all elements with .footer-show
+
 const footerContents = document.querySelectorAll('.footer-show');
 
 footerContents.forEach(footer => {

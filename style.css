@@ -7,7 +7,7 @@
     }
     body {
           font-family: 'Open-sans', sans-serif;
-           /* letter-spacing: 1.5px; */
+           
          }
          
 html,body{
@@ -17,7 +17,7 @@ html,body{
  
 header {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* dark background for gym vibe */
+  background-color: rgba(0, 0, 0, 0.8); 
   padding: 15px 30px;
   position: fixed;
   top: 0;
@@ -73,7 +73,7 @@ nav {
 }
 
 .nav-menu ul li a:hover {
-  color: #ff3c00; /* gym accent color */
+  color: #ff3c00; 
 }
 
 /* underline effect */
@@ -130,6 +130,24 @@ nav {
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
+    #slide1{
+
+     background-position: center 30%; 
+     background-image: url('images/GET\ STRONGER.jpg');
+}
+
+#slide2{
+
+     background-position: center 10%; /* Or adjust for important content */
+     background-image: url('images/LIFT\ HEAVY.jpg');
+}
+
+
+#slide3{
+
+     background-position: center 25%; /* Or adjust for important content */
+      background-image: url('images/UNLEASH\ THE\ BEAST.jpg');
+}
 
     .slide.active {
       opacity: 1;
@@ -139,35 +157,42 @@ nav {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0);
+    }
+
+    #slide1 .content{
+       position: absolute;
+      top: 70%;
+      left: 30%;
+    }
+    
+    #slide2 .content{
+       position: absolute;
+      top: 58%;
+      left: 35%;
+    }
+    
+    #slide3 .content{
+       position: absolute;
+      top: 75%;
+      left: 35%;
     }
 
     .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+     
       transform: translate(-50%, -50%);
       color: #fff;
       text-align: center;
       z-index: 2;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 1.5rem;
       padding:2rem 0.2rem;
       width: 70%;
-    }
-
-    .content h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
     }
 
     .content p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      line-height: 40px;
-      font-style: italic;
+      line-height: 30px;
+      font-style: bold;
     }
 
     .content button,nav button {
@@ -190,6 +215,44 @@ nav {
       transform: scale(1.05);
     
     }
+    
+    
+@media (max-width: 768px) {
+    #slide1{
+    background-position: center; 
+     background-image: url("images/GET\ STRONGER-mobile.jpg");
+  }
+  #slide1 .content p,#slide2 .content p,#slide3 .content p{
+    display: none;
+  }
+  #slide1 .content{
+    position: absolute;
+    top:80%;
+    left: 40%;
+  }
+    #slide2 .content{
+    position: absolute;
+    top:55%;
+    left: 35%;
+  }
+    #slide3 .content{
+    position: absolute;
+    top:80%;
+    left: 35%;
+  }
+  #slide2{
+    background-position: center;
+    background-image: url("images/LIFT\ HEAVY-mobile.jpg");
+  }
+  #slide3{
+    background-position: center; 
+    background-image: url("images/UNLEASH\ THE\ BEAST-mobile.jpg");
+  }
+}
+
+
+
+
 
     
     .arrow {
@@ -250,7 +313,12 @@ span.yellow{
  margin-top: 1.5rem;
 }
 .about-container img{
-  display: none;
+   height: 300px;
+    width: 100%;
+    margin-bottom: 0.7rem;
+    position: relative;
+    z-index: 3;
+    border-radius: 1rem;
 }
 .about-container {
   max-width: 600px;
@@ -280,7 +348,7 @@ span.yellow{
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* black overlay at 50% opacity */
+  background-color: rgba(0, 0, 0, 0.7); 
   border-radius: 1.5rem;
   z-index: 1;
 }
@@ -341,14 +409,13 @@ span.yellow{
   border-radius: 2rem;
   margin-bottom: 5rem;
   margin-top: 2rem;
-  /* Hide vertical scrollbar */
+
   height: auto;
   max-width: 75%;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }
 
 
-/* Arrow */
 .swipe-arrow {
   position: absolute;
   top: 50%;
@@ -360,7 +427,6 @@ span.yellow{
   transition: opacity 0.5s ease;
 }
 
-/* Arrow animation */
 @keyframes arrowMove {
   0%, 100% {
     transform: translateX(0) scale(1);
@@ -372,7 +438,6 @@ span.yellow{
   }
 }
 
-/* Fade-out state */
 .swipe-arrow.hide {
   opacity: 0;
   visibility: hidden;
@@ -566,11 +631,11 @@ span.yellow{
   padding: 4rem 2rem;
   background: linear-gradient(
   to top right,
-  #000000,  /* pure black */
-  #1a1a1a,  /* very dark grey */
-  #333333,  /* dark grey */
-  #4d4d4d,  /* medium dark grey */
-  #666666   /* lighter grey */
+  #000000,  
+  #1a1a1a,  
+  #333333,  
+  #4d4d4d, 
+  #666666   
 );
 
   color: #fff;
@@ -1003,7 +1068,7 @@ background: linear-gradient(135deg, #ffffff, #fafafa, #f5f5f0);}
 }
 
 
-/* ========== Footer Styling ========== */
+
 .footer {
   background-color: #0e0e0e;
   color: #f1f1f1;
@@ -1121,7 +1186,6 @@ background: linear-gradient(135deg, #ffffff, #fafafa, #f5f5f0);}
     }
 
 
-/* Responsive Design */
 @media (max-width: 768px) {
    #back-to-top{
     font-size: 1.3rem;
@@ -1142,8 +1206,8 @@ background: linear-gradient(135deg, #ffffff, #fafafa, #f5f5f0);}
   pointer-events: none;
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 999;
-  position: absolute; /* required to animate from top */
-  top: 100%; /* just below header */
+  position: absolute; 
+  top: 100%; 
   left: 5%;
 }
 
@@ -1195,10 +1259,6 @@ background: linear-gradient(135deg, #ffffff, #fafafa, #f5f5f0);}
 
   .arrow.right {
     right: 10px;
-  }
-  .content h1 {
-    font-size: 2.2rem;
-    
   }
 
   .content p {
@@ -1637,9 +1697,14 @@ span.yellow{
   .footer-socials .social-icons a{
     font-size: 1.2rem;
   }
+  .footer-bottom p a{
+    font-size: 0.5rem;
+    line-height: 3px;
+  }
   .footer-bottom p, .footer-bottom .created-by a{
     font-size: 0.8rem;
   }
+  
   .footer-brand,
   .footer-links,
   .footer-socials {
